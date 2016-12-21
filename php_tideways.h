@@ -1,6 +1,7 @@
 /*
  *  Copyright (c) 2009 Facebook
- *  Copyright (c) 2014 Qafoo GmbH
+ *  Copyright (c) 2014-2016 Qafoo GmbH
+ *  Copyright (c) 2016 Tideways GmbH
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -33,7 +34,7 @@ extern zend_module_entry tideways_module_entry;
 #endif
 
 /* Tideways version                           */
-#define TIDEWAYS_VERSION       "4.0.6"
+#define TIDEWAYS_VERSION       "4.0.7"
 
 /* Fictitious function name to represent top of the call tree. The paranthesis
  * in the name is to ensure we don't conflict with user function names.  */

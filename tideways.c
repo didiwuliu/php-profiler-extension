@@ -1,6 +1,7 @@
 /*
  *  Copyright (c) 2009 Facebook
- *  Copyright (c) 2014 Qafoo GmbH
+ *  Copyright (c) 2014-2016 Qafoo GmbH
+ *  Copyright (c) 2016 Tideways GmbH
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -470,6 +471,7 @@ PHP_INI_ENTRY("tideways.monitor", "basic", PHP_INI_ALL, NULL)
 PHP_INI_ENTRY("tideways.distributed_tracing_hosts", "127.0.0.1", PHP_INI_ALL, NULL)
 PHP_INI_ENTRY("tideways.log_level", "0", PHP_INI_ALL, NULL)
 PHP_INI_ENTRY("tideways.max_spans", "1500", PHP_INI_ALL, NULL)
+PHP_INI_ENTRY("tideways.timeout", "10000", PHP_INI_ALL, NULL)
 
 PHP_INI_END()
 
@@ -489,6 +491,10 @@ PHP_GINIT_FUNCTION(hp)
     hp_globals->stats_count = NULL;
     hp_globals->spans = NULL;
     hp_globals->exception = NULL;
+#else
+    ZVAL_UNDEF(&hp_globals->stats_count);
+    ZVAL_UNDEF(&hp_globals->spans);
+    ZVAL_UNDEF(&hp_globals->exception);
 #endif
     hp_globals->backtrace = NULL;
     hp_globals->filtered_functions = NULL;
